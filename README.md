@@ -1,1 +1,1 @@
-# Noida-Route-Pathfinder 
+"Noida-Route-Pathfinder is a project focused on finding the most efficient travel routes within Noida using advanced pathfinding algorithms. Supports dynamic route optimization, multiple starting points, and real-time updates." 
