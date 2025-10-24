@@ -1,4 +1,3 @@
-
 export function dijkstra(graph, start, end) {
   if (!graph[start]) throw new Error(`Unknown start node: ${start}`);
   if (!graph[end]) throw new Error(`Unknown end node: ${end}`);
