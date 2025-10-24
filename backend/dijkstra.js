@@ -1,4 +1,4 @@
-// Clean Dijkstra implementation with safety checks
+
 export function dijkstra(graph, start, end) {
   if (!graph[start]) throw new Error(`Unknown start node: ${start}`);
   if (!graph[end]) throw new Error(`Unknown end node: ${end}`);
@@ -12,7 +12,7 @@ export function dijkstra(graph, start, end) {
   dist[start] = 0;
 
   while (visited.size < nodes.length) {
-    // pick unvisited node with smallest distance
+    
     let u = null;
     let best = Infinity;
     for (const n of nodes) {
@@ -34,7 +34,7 @@ export function dijkstra(graph, start, end) {
 
   if (dist[end] === Infinity) return { path: [], distance: Infinity };
 
-  // reconstruct path
+  
   const path = [];
   let cur = end;
   while (cur) {
