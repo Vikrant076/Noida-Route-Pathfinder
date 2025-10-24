@@ -1,5 +1,3 @@
-
-
 export const nodes = [
   "Sector 62",
   "Sector 18",
