@@ -1,9 +1,5 @@
 const BASE = import.meta.env.VITE_API_URL || "http://localhost:5001/api";
 
-/**
- * getNodes -> returns array of node names
- * getPath(from, to) -> returns { path: [...], distance: number }
- */
 export async function getNodes() {
   const res = await fetch(`${BASE}/nodes`);
   if (!res.ok) throw new Error("Failed to load nodes");
