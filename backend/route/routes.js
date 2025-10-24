@@ -1,4 +1,4 @@
-// backend/routes/route.js
+
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
@@ -9,11 +9,11 @@ const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const ORS_KEY = process.env.ORS_API_KEY;
 const ORS_URL = 'https://api.openrouteservice.org/v2/directions/driving-car/geojson';
 
-// Default auto fare config (tweak later in DB)
+
 const AUTO_CONFIG = { base: 25, per_km: 10, per_min: 0.5, min_fare: 30 };
 
 async function callORS(coords) {
-  const body = { coordinates: coords }; // [[lng,lat],[lng,lat],...]
+  const body = { coordinates: coords }; 
   const r = await axios.post(ORS_URL, body, {
     headers: { Authorization: ORS_KEY, 'Content-Type': 'application/json' }
   });
@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ error: 'sources and destinations required and must match in count' });
     }
 
-    // Build coordinate list for ORS: [lng,lat] pairs
+    
     const coords = [];
     for (let i = 0; i < sources.length; i++) {
       coords.push([sources[i].lng, sources[i].lat]);
@@ -64,7 +64,7 @@ router.post('/', async (req, res) => {
     if (fare_auto < AUTO_CONFIG.min_fare) fare_auto = AUTO_CONFIG.min_fare;
     fare_auto = Math.round(fare_auto);
 
-    // Attempt metro fare using first source and last destination -> nearest station logic
+    
     const first = sources[0], last = destinations[destinations.length - 1];
     const nearestStart = await findNearestStation(first);
     const nearestEnd = await findNearestStation(last);
