@@ -1,7 +1,4 @@
-// Minimal Noida map (undirected). Friendly, editable.
-// Distances are example kilometers for demo purposes.
-//
-// To extend: add lat/lng fields and edges for drawing on maps.
+
 
 export const nodes = [
   "Sector 62",
@@ -26,7 +23,7 @@ const edges = [
   ["Botanical Garden", "Okhla Bird Sanctuary", 2]
 ];
 
-// Build adjacency map: { node: { neighbor: weight, ... }, ... }
+
 export const adjacency = nodes.reduce((acc, n) => ({ ...acc, [n]: {} }), {});
 for (const [a, b, w] of edges) {
   adjacency[a][b] = w;
